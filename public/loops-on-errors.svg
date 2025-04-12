@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="800" height="600">
+  <style>
+    @keyframes pulse {
+      0% { opacity: 0.6; }
+      50% { opacity: 1; }
+      100% { opacity: 0.6; }
+    }
+    @keyframes slide {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(20px); }
+    }
+    .error-line { animation: pulse 2s infinite; }
+    .fix-arrow { animation: slide 1.5s infinite alternate; }
+  </style>
+  
+  <!-- Code Editor Background -->
+  <rect x="50" y="50" width="700" height="500" rx="10" fill="#1a1a1a"/>
+  
+  <!-- Editor Chrome -->
+  <rect x="50" y="50" width="700" height="40" rx="10" fill="#2a2a2a"/>
+  <circle cx="80" cy="70" r="6" fill="#ff5f56"/>
+  <circle cx="100" cy="70" r="6" fill="#ffbd2e"/>
+  <circle cx="120" cy="70" r="6" fill="#27c93f"/>
+  
+  <!-- Code Content -->
+  <g transform="translate(70, 120)" fill="#abb2bf" font-family="monospace" font-size="14">
+    <!-- Line numbers -->
+    <text x="0" y="20" fill="#636363">1</text>
+    <text x="0" y="50" fill="#636363">2</text>
+    <text x="0" y="80" fill="#636363">3</text>
+    <text x="0" y="110" fill="#636363">4</text>
+    <text x="0" y="140" fill="#636363">5</text>
+    
+    <!-- Code lines -->
+    <text x="30" y="20"><tspan fill="#c678dd">function</tspan> <tspan fill="#61afef">validateInput</tspan><tspan fill="#abb2bf">(</tspan><tspan fill="#e06c75">input</tspan><tspan fill="#abb2bf">) {</tspan></text>
+    <text x="30" y="50"><tspan fill="#abb2bf">  if (</tspan><tspan fill="#e06c75">input</tspan><tspan fill="#abb2bf">.</tspan><tspan fill="#61afef">length</tspan><tspan fill="#abb2bf"> = 0) {</tspan></text>
+    <text x="30" y="80" class="error-line" fill="#e06c75">  // Error: Assignment in condition</text>
+    <text x="30" y="110"><tspan fill="#abb2bf">    return </tspan><tspan fill="#d19a66">false</tspan><tspan fill="#abb2bf">;</tspan></text>
+    <text x="30" y="140"><tspan fill="#abb2bf">  }</tspan></text>
+  </g>
+  
+  <!-- Fix Arrow -->
+  <g class="fix-arrow" transform="translate(400, 190)">
+    <path d="M0,0 L20,0 M15,-5 L20,0 L15,5" stroke="#98c379" stroke-width="2" fill="none"/>
+    <text x="30" y="5" fill="#98c379" font-family="monospace" font-size="12">Fix: Use == for comparison</text>
+  </g>
+</svg>

@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="600" height="400" viewBox="0 0 600 400">
+  <style>
+    @keyframes errorHighlight {
+      0%, 100% { fill: rgba(255, 0, 0, 0.2); }
+      50% { fill: rgba(255, 0, 0, 0.4); }
+    }
+    @keyframes fixAnimation {
+      0% { transform: translateY(0); opacity: 0; }
+      50% { transform: translateY(-10px); opacity: 1; }
+      100% { transform: translateY(-20px); opacity: 0; }
+    }
+    .code-bg { fill: #1a1a1a; }
+    .error-line { animation: errorHighlight 2s infinite; }
+    .fix-text { font: 14px monospace; fill: #4CAF50; animation: fixAnimation 2s infinite; }
+    .code-text { font: 14px monospace; fill: #ffffff; }
+  </style>
+  
+  <rect width="600" height="400" class="code-bg"/>
+  
+  <!-- Code lines -->
+  <text x="20" y="40" class="code-text">function calculateTotal(items) {</text>
+  <text x="40" y="70" class="code-text">let total = 0;</text>
+  <rect x="40" y="90" width="520" height="25" class="error-line"/>
+  <text x="40" y="110" class="code-text">items.forEach(item => total += item.price);</text>
+  <text x="40" y="140" class="code-text">return total;</text>
+  <text x="20" y="170" class="code-text">}</text>
+  
+  <!-- Error message -->
+  <text x="40" y="200" fill="#ff6b6b" class="code-text">Error: Possible undefined value access on item.price</text>
+  
+  <!-- Fix suggestion -->
+  <text x="40" y="230" class="fix-text">Adding null check: items?.forEach(item => total += item?.price || 0);</text>
+  
+  <!-- Fixed code animation -->
+  <g transform="translate(0, 280)">
+    <text x="20" y="40" class="code-text">function calculateTotal(items) {</text>
+    <text x="40" y="70" class="code-text">let total = 0;</text>
+    <text x="40" y="100" class="code-text" fill="#4CAF50">items?.forEach(item => total += item?.price || 0);</text>
+    <text x="40" y="130" class="code-text">return total;</text>
+    <text x="20" y="160" class="code-text">}</text>
+  </g>
+</svg>

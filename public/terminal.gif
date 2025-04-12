@@ -1,0 +1,73 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="600" height="400" viewBox="0 0 600 400">
+  <style>
+    @keyframes typing {
+      from { width: 0; }
+      to { width: 100%; }
+    }
+    @keyframes blink {
+      50% { opacity: 0; }
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    .terminal-bg { fill: #1a1a1a; }
+    .prompt { font: 14px monospace; fill: #00ff00; }
+    .command { font: 14px monospace; fill: #ffffff; }
+    .output { font: 14px monospace; fill: #888888; }
+    .cursor { fill: #ffffff; animation: blink 1s infinite; }
+    .typing-container { animation: typing 3s steps(40, end); }
+    .result { animation: fadeIn 1s ease-in; }
+  </style>
+  
+  <rect width="600" height="400" class="terminal-bg"/>
+  
+  <!-- Terminal window chrome -->
+  <rect x="0" y="0" width="600" height="30" fill="#333"/>
+  <circle cx="20" cy="15" r="6" fill="#ff5f56"/>
+  <circle cx="40" cy="15" r="6" fill="#ffbd2e"/>
+  <circle cx="60" cy="15" r="6" fill="#27c93f"/>
+  
+  <!-- Command prompt and natural language input -->
+  <g transform="translate(20, 60)">
+    <text class="prompt">$ ⌘K</text>
+    <g class="typing-container">
+      <text x="50" y="0" class="command">find all javascript files modified in the last week</text>
+    </g>
+  </g>
+  
+  <!-- Converting animation -->
+  <g transform="translate(20, 100)" class="result">
+    <text class="output">Converting to command...</text>
+  </g>
+  
+  <!-- Converted command -->
+  <g transform="translate(20, 140)" class="result">
+    <text class="command">$ find . -name "*.js" -mtime -7</text>
+  </g>
+  
+  <!-- Command output -->
+  <g transform="translate(20, 180)" class="result">
+    <text class="output">./src/app.js</text>
+    <text y="20" class="output">./src/components/header.js</text>
+    <text y="40" class="output">./src/utils/helpers.js</text>
+  </g>
+  
+  <!-- New command prompt -->
+  <g transform="translate(20, 260)">
+    <text class="prompt">$ ⌘K</text>
+    <g class="typing-container">
+      <text x="50" y="0" class="command">show disk usage in human readable format</text>
+    </g>
+  </g>
+  
+  <!-- Converting animation for second command -->
+  <g transform="translate(20, 300)" class="result">
+    <text class="output">Converting to command...</text>
+  </g>
+  
+  <!-- Converted second command -->
+  <g transform="translate(20, 340)" class="result">
+    <text class="command">$ df -h</text>
+  </g>
+</svg>
